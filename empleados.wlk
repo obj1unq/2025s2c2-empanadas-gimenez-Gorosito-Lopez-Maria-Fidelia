@@ -41,7 +41,8 @@ object galvan {
         dinero = sueldo - deuda
     }
     else{
-        deuda()
+        deuda = 0
+        dinero = sueldo - deuda
     }
   }
   method deuda(){
@@ -78,8 +79,12 @@ object baigorria {
 //Jefe
 object gimenez {
   var fondoParaSueldos = 300000
-  method pagarSueldoA(empleado){
+  method fondoParaSueldos(){
+    return fondoParaSueldos
+  }
+  method pagarSueldo(empleado){
     fondoParaSueldos = fondoParaSueldos - empleado.sueldo()
+    empleado.cobrar()
   }
 }
 
