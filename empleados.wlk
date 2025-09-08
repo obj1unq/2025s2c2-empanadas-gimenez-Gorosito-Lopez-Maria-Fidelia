@@ -83,8 +83,15 @@ object gimenez {
     return fondoParaSueldos
   }
   method pagarSueldo(empleado){
+    self.validarPagoSueldoPara(empleado)
     fondoParaSueldos = fondoParaSueldos - empleado.sueldo()
     empleado.cobrar()
+  }
+  method validarPagoSueldoPara(empleado){
+    if (fondoParaSueldos < empleado.sueldo()){
+      self.error("El fondo no alcanza para pagar el sueldo: " + empleado.sueldo())
+    }
+    self.pagarSueldo(empleado)
   }
 }
 
